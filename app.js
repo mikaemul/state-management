@@ -10,7 +10,7 @@ const password = 'bar';
 
 
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -43,13 +43,14 @@ app.post('/login', (req,res) =>{
     req.session.loggedIn = true;
   res.redirect('/secret');
   }else{
+    //req.session.logged = false;
     res.redirect('/form');
   }
   res.end();
 });
 app.get('/secret', (req,res) =>{
   if(req.session.loggedIn){
-    res.redirect('/secret');
+    //res.redirect('/secret');
     res.render('secret.pug');
 
   }else{
