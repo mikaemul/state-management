@@ -23,10 +23,8 @@ app.use(session({secret:'Shh, its a secret!',
 app.get('/', (req, res) => {
   res.render('home');
 });
-app.get('/setCookie', (req, res) => {
-  var clr ='/setCookie/';
-  req.cookie('color', clr);
-  res.send('color ' + clr);
+app.get('/setCookie/:clr', (req, res) => {
+  res.cookie('color', req.params.clr).send('cookie set');
   console.log('works');
 });
 app.get('/deleteCookie', (req, res) => {
