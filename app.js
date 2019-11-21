@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(session({secret:'Shh, its a secret!',
   saveUninitialized: true,
-  resave: true,
+  resave: false,
 }));
 app.set('views', './views');
 app.set('view engine', 'pug');
