@@ -12,12 +12,13 @@ const password = 'bar';
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.set('views', './views');
-app.set('view engine', 'pug');
 app.use(session({secret:'Shh, its a secret!',
   saveUninitialized: true,
   resave: true,
 }));
+app.set('views', './views');
+app.set('view engine', 'pug');
+
 
 
 app.get('/', (req, res) => {
